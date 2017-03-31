@@ -1,0 +1,6 @@
+useDynLib(GenomicMating, .registration=TRUE)
+importFrom(Rcpp, evalCpp)
+import(stats)
+import(parallel)
+exportPattern("^[[:alpha:]]+")
+importFrom("graphics", "plot")

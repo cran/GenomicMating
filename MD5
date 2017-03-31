@@ -1,0 +1,14 @@
+8ac2a2f42b6f4b07f4113b15e824787d *DESCRIPTION
+211dbcecf2e11ed0f6e1f45e98012ed2 *NAMESPACE
+79869166f7feb4acd6c2bbdb00b4a16b *R/Amatinpieces.R
+681664a150c7b893cd359b9ad2132ac2 *R/MatingPrograms.R
+072c420add68a0dc4f7875a1b6e05e1c *R/RcppExports.R
+99f53719665205ea76d4d4aab668b769 *build/partial.rdb
+be9cd9244f3de4e9eb39f7ccd7ffd9c6 *man/Amatinpieces.rd
+80b37d1e0b3761e80461b5c83aaf4f71 *man/GenomicMating-package.Rd
+cf39efd8b4c2eb96068bb07f9eaa68fa *man/getGaSolutions.rd
+2a6f9e9e044a78154d3cfda5936d6f48 *src/Makevars
+8d46d69896a1f1d31ed76035a0e49d67 *src/Makevars.win
+4b9431a37d220d279157b7fbe9fbf866 *src/MatingPrograms.cpp
+878de7a1fcf49cad873067249995e8f2 *src/RcppExports.cpp
+7c22b1b500cab25872924e218f1645f5 *src/registerDynamicSymbol.c
