@@ -1,7 +1,9 @@
-getGaSolutions<-function(Markers, K, markereffects,minparents=10, impinbreedstepsize=.2, impvar, impforinbreed,npopGA, nitGA, plotiters,nelite, mutprob, mc.cores, miniters=100,minitbefstop=80, tolparconv=1e-6){
+getGaSolutions<-function(Markers, K, markereffects,nmates=NULL,minparents=10, impinbreedstepsize=.2, impvar, impforinbreed,npopGA, nitGA, plotiters,nelite, mutprob, mc.cores, miniters=100,minitbefstop=80, tolparconv=1e-6){
+
  converged=FALSE
   ##############################list of parents optimization
 N=nrow(Markers)
+if (is.null(nmates)){nmates=N}
   allcombs<-matrix(nrow=0,ncol=2)
 ij=1
 for (i in 1:N){for(j in i:N){allcombs<-rbind(allcombs,c(i,j));ij+ij+1}}
@@ -102,7 +104,7 @@ GAfunc<-function (ntoselect, npop, nelite, mutprob,
   return(ElitePop)
 }
 
-outGA<-GAfunc(ntoselect=N, npop=npopGA, nelite=nelite, mutprob=mutprob, 
+outGA<-GAfunc(ntoselect=nmates, npop=npopGA, nelite=nelite, mutprob=mutprob, 
               niterations=nitGA, plotiters = plotiters) 
 
 solutionGA<-outGA[[1]]
