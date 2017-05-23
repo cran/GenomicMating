@@ -1,9 +1,9 @@
-8b80974abf93dcd784d993f0bd954228 *DESCRIPTION
+a4d142ce0059914a48353906fbafd9c6 *DESCRIPTION
 211dbcecf2e11ed0f6e1f45e98012ed2 *NAMESPACE
 79869166f7feb4acd6c2bbdb00b4a16b *R/Amatinpieces.R
-560c08439e29d29961fb1192a8a53051 *R/MatingPrograms.R
+15ad90c852570ef203c22a1bee79a958 *R/MatingPrograms.R
 072c420add68a0dc4f7875a1b6e05e1c *R/RcppExports.R
-7c6b14df9426535c94d5feab7c3c13eb *build/partial.rdb
+53c7589f5d2717daeb807433b18944ea *build/partial.rdb
 be9cd9244f3de4e9eb39f7ccd7ffd9c6 *man/Amatinpieces.rd
 80b37d1e0b3761e80461b5c83aaf4f71 *man/GenomicMating-package.Rd
 a71d11327ba72be0871b0ff70cacddab *man/getGaSolutions.rd

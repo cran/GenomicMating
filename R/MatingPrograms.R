@@ -12,7 +12,7 @@ solnnotfound=TRUE
 while (((solnnotfound)&&(!converged))){
 
 GAobjfunc<-function(indexesinallcombs){
-  Z<-matrix(0,nrow=N, ncol=N)
+  Z<-matrix(0,nrow=nmates, ncol=N)
   for (i in 1:length(indexesinallcombs)){
     Z[i,allcombs[indexesinallcombs[i],]]<-1/2
     if (allcombs[indexesinallcombs[i],][1]==allcombs[indexesinallcombs[i],][2]){Z[i,allcombs[indexesinallcombs[i],]]<-1}
