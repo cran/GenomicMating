@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 // Kmatfunc
 arma::mat Kmatfunc(arma::mat Markers);
-RcppExport SEXP GenomicMating_Kmatfunc(SEXP MarkersSEXP) {
+RcppExport SEXP _GenomicMating_Kmatfunc(SEXP MarkersSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -19,7 +19,7 @@ END_RCPP
 }
 // mapfunct
 arma::vec mapfunct(arma::vec x);
-RcppExport SEXP GenomicMating_mapfunct(SEXP xSEXP) {
+RcppExport SEXP _GenomicMating_mapfunct(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -29,22 +29,21 @@ BEGIN_RCPP
 END_RCPP
 }
 // calculatecrossvalue
-double calculatecrossvalue(arma::vec parent1, arma::vec parent2, arma::vec markereffects, double impvar);
-RcppExport SEXP GenomicMating_calculatecrossvalue(SEXP parent1SEXP, SEXP parent2SEXP, SEXP markereffectsSEXP, SEXP impvarSEXP) {
+double calculatecrossvalue(arma::vec parent1, arma::vec parent2, arma::vec markereffects);
+RcppExport SEXP _GenomicMating_calculatecrossvalue(SEXP parent1SEXP, SEXP parent2SEXP, SEXP markereffectsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< arma::vec >::type parent1(parent1SEXP);
     Rcpp::traits::input_parameter< arma::vec >::type parent2(parent2SEXP);
     Rcpp::traits::input_parameter< arma::vec >::type markereffects(markereffectsSEXP);
-    Rcpp::traits::input_parameter< double >::type impvar(impvarSEXP);
-    rcpp_result_gen = Rcpp::wrap(calculatecrossvalue(parent1, parent2, markereffects, impvar));
+    rcpp_result_gen = Rcpp::wrap(calculatecrossvalue(parent1, parent2, markereffects));
     return rcpp_result_gen;
 END_RCPP
 }
 // getstats
-arma::vec getstats(arma::mat Markers, arma::mat K, arma::vec markereffects, arma::mat P, double impvar);
-RcppExport SEXP GenomicMating_getstats(SEXP MarkersSEXP, SEXP KSEXP, SEXP markereffectsSEXP, SEXP PSEXP, SEXP impvarSEXP) {
+arma::vec getstats(arma::mat Markers, arma::mat K, arma::vec markereffects, arma::mat P);
+RcppExport SEXP _GenomicMating_getstats(SEXP MarkersSEXP, SEXP KSEXP, SEXP markereffectsSEXP, SEXP PSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -52,8 +51,20 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::mat >::type K(KSEXP);
     Rcpp::traits::input_parameter< arma::vec >::type markereffects(markereffectsSEXP);
     Rcpp::traits::input_parameter< arma::mat >::type P(PSEXP);
-    Rcpp::traits::input_parameter< double >::type impvar(impvarSEXP);
-    rcpp_result_gen = Rcpp::wrap(getstats(Markers, K, markereffects, P, impvar));
+    rcpp_result_gen = Rcpp::wrap(getstats(Markers, K, markereffects, P));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_GenomicMating_Kmatfunc", (DL_FUNC) &_GenomicMating_Kmatfunc, 1},
+    {"_GenomicMating_mapfunct", (DL_FUNC) &_GenomicMating_mapfunct, 1},
+    {"_GenomicMating_calculatecrossvalue", (DL_FUNC) &_GenomicMating_calculatecrossvalue, 3},
+    {"_GenomicMating_getstats", (DL_FUNC) &_GenomicMating_getstats, 4},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_GenomicMating(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }

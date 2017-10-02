@@ -84,7 +84,7 @@ arma::vec mapfunct(arma::vec x){
 
 // [[Rcpp::depends("RcppArmadillo")]]
 // [[Rcpp::export]]
-double calculatecrossvalue(arma::vec parent1, arma::vec parent2,arma::vec markereffects, double impvar){
+double calculatecrossvalue(arma::vec parent1, arma::vec parent2,arma::vec markereffects){
   arma::uvec tempbool=find(markereffects<0);
   
   parent1(tempbool)=-parent1(tempbool);
@@ -102,7 +102,7 @@ double calculatecrossvalue(arma::vec parent1, arma::vec parent2,arma::vec marker
     scores.col(iter)=mapfunct(p1p2.col(iter));
   }
  
-  arma::mat scoresv=scores.row(0)+(impvar)*sqrt(scores.row(1))-1;
+  arma::mat scoresv=sqrt(scores.row(1));
 
   double output=as_scalar(scoresv*absmarkereffects);
   return output;
@@ -112,7 +112,7 @@ double calculatecrossvalue(arma::vec parent1, arma::vec parent2,arma::vec marker
 
 // [[Rcpp::depends("RcppArmadillo")]]
 // [[Rcpp::export]]
-arma::vec getstats(arma::mat Markers, arma::mat K, arma::vec markereffects, arma::mat P, double impvar) {
+arma::vec getstats(arma::mat Markers, arma::mat K, arma::vec markereffects, arma::mat P) {
   arma::vec output(3);
   arma::vec EBV=Markers*markereffects;
   output(0)=as_scalar(ones(1,P.n_rows)*P*EBV);
@@ -128,7 +128,6 @@ arma::vec getstats(arma::mat Markers, arma::mat K, arma::vec markereffects, arma
 
 tempbool=find(P.row(iter)>0);
 if (tempbool.n_elem==1){
-
   f1f2(0)=as_scalar(inbreedvec.elem(tempbool));
   f1f2(1)=as_scalar(inbreedvec.elem(tempbool));
 }else {f1f2=inbreedvec.elem(tempbool);}
@@ -150,7 +149,7 @@ Psi(iter)=psi;
     
   } else {Parents=Markers.rows(tempbool);}
   
-  crossvalues(iter)=calculatecrossvalue(Parents.row(0).t(), Parents.row(1).t(),markereffects,impvar);
+  crossvalues(iter)=calculatecrossvalue(Parents.row(0).t(), Parents.row(1).t(),markereffects);
   }
   output(2)=sum(crossvalues);
 

@@ -2,7 +2,7 @@
 \alias{Amat.pieces}
 \title{Amat.pieces}
 \description{
-This calculates the genomic relationship matrix using the formula in Van Ragen (2008)}
+This calculates the genomic relationship matrix using the formula in VanRaden (2008)}
 \usage{
 Amat.pieces(M, pieces=10, mc.cores=1)
 }

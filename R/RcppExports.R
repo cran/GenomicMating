@@ -2,18 +2,18 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 Kmatfunc <- function(Markers) {
-    .Call('GenomicMating_Kmatfunc', PACKAGE = 'GenomicMating', Markers)
+    .Call(`_GenomicMating_Kmatfunc`, Markers)
 }
 
 mapfunct <- function(x) {
-    .Call('GenomicMating_mapfunct', PACKAGE = 'GenomicMating', x)
+    .Call(`_GenomicMating_mapfunct`, x)
 }
 
-calculatecrossvalue <- function(parent1, parent2, markereffects, impvar) {
-    .Call('GenomicMating_calculatecrossvalue', PACKAGE = 'GenomicMating', parent1, parent2, markereffects, impvar)
+calculatecrossvalue <- function(parent1, parent2, markereffects) {
+    .Call(`_GenomicMating_calculatecrossvalue`, parent1, parent2, markereffects)
 }
 
-getstats <- function(Markers, K, markereffects, P, impvar) {
-    .Call('GenomicMating_getstats', PACKAGE = 'GenomicMating', Markers, K, markereffects, P, impvar)
+getstats <- function(Markers, K, markereffects, P) {
+    .Call(`_GenomicMating_getstats`, Markers, K, markereffects, P)
 }
 
