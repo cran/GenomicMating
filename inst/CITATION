@@ -1,0 +1,25 @@
+citHeader("To cite the 'GenomicMating' package in publications, use:")
+
+year = sub('.*(2[[:digit:]]{3})-.*', '\\1', meta$Date, perl = TRUE)
+vers = paste('R package version', meta$Version)
+
+citEntry(
+  entry = 'manual',
+  title = paste('GenomicMating:', meta$Title),
+  author = as.person(meta$Author),
+  year = year,
+  note = vers,
+  textVersion = paste('Deniz Akdemir, Julio Isidro Sanch\'ez, Hanna Haikka, Itaraju Baracuhy Brum (', year, ') GenomicMating: ', meta$Title, '. ', vers, '.', sep = '')
+)
+
+citEntry(
+  entry = 'article',
+  title= 'Efficient breeding by genomic mating',
+  author = personList(as.person("Deniz Akdemir"), as.person("Julio Isidro-Sanch\'ez")),
+  journal= 'Frontiers in genetics',
+  volume= '7',
+  pages= '210',
+  year= '2016',
+  publisher='Frontiers',
+  textVersion = 'Akdemir, Sanchez. "Efficient Breeding by Genomic Mating." Frontiers in Genetics (2016).'
+)

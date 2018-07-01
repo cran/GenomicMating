@@ -5,15 +5,15 @@ Kmatfunc <- function(Markers) {
     .Call(`_GenomicMating_Kmatfunc`, Markers)
 }
 
-mapfunct <- function(x) {
-    .Call(`_GenomicMating_mapfunct`, x)
+getstatsM1 <- function(Markers, K, markereffects, P) {
+    .Call(`_GenomicMating_getstatsM1`, Markers, K, markereffects, P)
 }
 
-calculatecrossvalue <- function(parent1, parent2, markereffects) {
-    .Call(`_GenomicMating_calculatecrossvalue`, parent1, parent2, markereffects)
+getstatsM2 <- function(Markers, K, markereffects, P, markermap, type, generation) {
+    .Call(`_GenomicMating_getstatsM2`, Markers, K, markereffects, P, markermap, type, generation)
 }
 
-getstats <- function(Markers, K, markereffects, P) {
-    .Call(`_GenomicMating_getstats`, Markers, K, markereffects, P)
+getstatsM3 <- function(Markers, K, markereffects, P) {
+    .Call(`_GenomicMating_getstatsM3`, Markers, K, markereffects, P)
 }
 

@@ -17,33 +17,9 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// mapfunct
-arma::vec mapfunct(arma::vec x);
-RcppExport SEXP _GenomicMating_mapfunct(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< arma::vec >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(mapfunct(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// calculatecrossvalue
-double calculatecrossvalue(arma::vec parent1, arma::vec parent2, arma::vec markereffects);
-RcppExport SEXP _GenomicMating_calculatecrossvalue(SEXP parent1SEXP, SEXP parent2SEXP, SEXP markereffectsSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< arma::vec >::type parent1(parent1SEXP);
-    Rcpp::traits::input_parameter< arma::vec >::type parent2(parent2SEXP);
-    Rcpp::traits::input_parameter< arma::vec >::type markereffects(markereffectsSEXP);
-    rcpp_result_gen = Rcpp::wrap(calculatecrossvalue(parent1, parent2, markereffects));
-    return rcpp_result_gen;
-END_RCPP
-}
-// getstats
-arma::vec getstats(arma::mat Markers, arma::mat K, arma::vec markereffects, arma::mat P);
-RcppExport SEXP _GenomicMating_getstats(SEXP MarkersSEXP, SEXP KSEXP, SEXP markereffectsSEXP, SEXP PSEXP) {
+// getstatsM1
+arma::vec getstatsM1(arma::mat Markers, arma::mat K, arma::vec markereffects, arma::mat P);
+RcppExport SEXP _GenomicMating_getstatsM1(SEXP MarkersSEXP, SEXP KSEXP, SEXP markereffectsSEXP, SEXP PSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -51,16 +27,47 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::mat >::type K(KSEXP);
     Rcpp::traits::input_parameter< arma::vec >::type markereffects(markereffectsSEXP);
     Rcpp::traits::input_parameter< arma::mat >::type P(PSEXP);
-    rcpp_result_gen = Rcpp::wrap(getstats(Markers, K, markereffects, P));
+    rcpp_result_gen = Rcpp::wrap(getstatsM1(Markers, K, markereffects, P));
+    return rcpp_result_gen;
+END_RCPP
+}
+// getstatsM2
+arma::vec getstatsM2(arma::mat Markers, arma::mat K, arma::vec markereffects, arma::mat P, arma::mat markermap, unsigned char type, unsigned int generation);
+RcppExport SEXP _GenomicMating_getstatsM2(SEXP MarkersSEXP, SEXP KSEXP, SEXP markereffectsSEXP, SEXP PSEXP, SEXP markermapSEXP, SEXP typeSEXP, SEXP generationSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type Markers(MarkersSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type K(KSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type markereffects(markereffectsSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type P(PSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type markermap(markermapSEXP);
+    Rcpp::traits::input_parameter< unsigned char >::type type(typeSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type generation(generationSEXP);
+    rcpp_result_gen = Rcpp::wrap(getstatsM2(Markers, K, markereffects, P, markermap, type, generation));
+    return rcpp_result_gen;
+END_RCPP
+}
+// getstatsM3
+arma::vec getstatsM3(arma::mat Markers, arma::mat K, arma::vec markereffects, arma::mat P);
+RcppExport SEXP _GenomicMating_getstatsM3(SEXP MarkersSEXP, SEXP KSEXP, SEXP markereffectsSEXP, SEXP PSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type Markers(MarkersSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type K(KSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type markereffects(markereffectsSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type P(PSEXP);
+    rcpp_result_gen = Rcpp::wrap(getstatsM3(Markers, K, markereffects, P));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
     {"_GenomicMating_Kmatfunc", (DL_FUNC) &_GenomicMating_Kmatfunc, 1},
-    {"_GenomicMating_mapfunct", (DL_FUNC) &_GenomicMating_mapfunct, 1},
-    {"_GenomicMating_calculatecrossvalue", (DL_FUNC) &_GenomicMating_calculatecrossvalue, 3},
-    {"_GenomicMating_getstats", (DL_FUNC) &_GenomicMating_getstats, 4},
+    {"_GenomicMating_getstatsM1", (DL_FUNC) &_GenomicMating_getstatsM1, 4},
+    {"_GenomicMating_getstatsM2", (DL_FUNC) &_GenomicMating_getstatsM2, 7},
+    {"_GenomicMating_getstatsM3", (DL_FUNC) &_GenomicMating_getstatsM3, 4},
     {NULL, NULL, 0}
 };
 

@@ -1,8 +1,5 @@
-#M is coded as -1,0,1; no missing
-
-
-
 Amat.pieces<-function(M, pieces=10, mc.cores=1){
+  #M is coded as -1,0,1; no missing
   
 AmatPieces<-function(M){
   pvec<-matrix(apply(M, 2, function(x){mean(x+1)/2}), ncol=1)
@@ -30,7 +27,7 @@ chunk <- function(x,n) split(x, factor(sort(rank(x)%%n)))
 listforlapply<-chunk(x,n)
 
 lapplyfunc<-function(x){
-  return(AmatPieces(M[,x]-1))
+  return(AmatPieces(M[,x]))
 }
 lapplyout<-mclapply(X=listforlapply, FUN=lapplyfunc, mc.cores=mc.cores)
 
@@ -40,6 +37,6 @@ A<-CombAmatPieces(lapplyout)
 return(A)
 
 }
-
+ 
 
 
